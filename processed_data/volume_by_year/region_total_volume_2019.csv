@@ -1,0 +1,121 @@
+region,month,volume
+East England,1,1150
+East England,2,1243
+East England,3,1412
+East England,4,1294
+East England,5,1403
+East England,6,1443
+East England,7,1577
+East England,8,1557
+East England,9,1411
+East England,10,1533
+East England,11,1637
+East England,12,1531
+East Midlands,1,6243
+East Midlands,2,6782
+East Midlands,3,7603
+East Midlands,4,7083
+East Midlands,5,8010
+East Midlands,6,7993
+East Midlands,7,8054
+East Midlands,8,8781
+East Midlands,9,7991
+East Midlands,10,8645
+East Midlands,11,8864
+East Midlands,12,8124
+East of England,1,5555
+East of England,2,5820
+East of England,3,6591
+East of England,4,6246
+East of England,5,6563
+East of England,6,7014
+East of England,7,7797
+East of England,8,8099
+East of England,9,7317
+East of England,10,7879
+East of England,11,7703
+East of England,12,7528
+Greater London,1,8555
+Greater London,2,8220
+Greater London,3,9874
+Greater London,4,9003
+Greater London,5,9604
+Greater London,6,10236
+Greater London,7,11504
+Greater London,8,12054
+Greater London,9,10369
+Greater London,10,10923
+Greater London,11,11141
+Greater London,12,9946
+North East,1,6009
+North East,2,6277
+North East,3,7697
+North East,4,6627
+North East,5,7469
+North East,6,8452
+North East,7,8026
+North East,8,8335
+North East,9,7486
+North East,10,8114
+North East,11,8573
+North East,12,8197
+North West,1,9396
+North West,2,10825
+North West,3,12249
+North West,4,11054
+North West,5,12780
+North West,6,12533
+North West,7,12506
+North West,8,13680
+North West,9,12209
+North West,10,13282
+North West,11,13718
+North West,12,12364
+South East,1,8830
+South East,2,9033
+South East,3,10267
+South East,4,9672
+South East,5,10427
+South East,6,11233
+South East,7,12126
+South East,8,12884
+South East,9,11265
+South East,10,12460
+South East,11,12443
+South East,12,12250
+South West,1,7083
+South West,2,7067
+South West,3,8288
+South West,4,7608
+South West,5,8450
+South West,6,8911
+South West,7,9189
+South West,8,9808
+South West,9,8677
+South West,10,9614
+South West,11,9886
+South West,12,9405
+Wales,1,3359
+Wales,2,3572
+Wales,3,4109
+Wales,4,3849
+Wales,5,4244
+Wales,6,4491
+Wales,7,4806
+Wales,8,5043
+Wales,9,4439
+Wales,10,4844
+Wales,11,5022
+Wales,12,4678
+West Midlands,1,6423
+West Midlands,2,7113
+West Midlands,3,8233
+West Midlands,4,7370
+West Midlands,5,8048
+West Midlands,6,8600
+West Midlands,7,8335
+West Midlands,8,9103
+West Midlands,9,8068
+West Midlands,10,9294
+West Midlands,11,9275
+West Midlands,12,8776

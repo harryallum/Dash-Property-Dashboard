@@ -9,30 +9,38 @@ dash.register_page(__name__, path='/sector-avg')
 
 layout = dbc.Container(
     [
-        dbc.Row(
-            [
-                dbc.Col(
-                    dcc.Dropdown(
-                        id='region-dropdown',
-                        options=[
-                            {'label': region, 'value': region}
-                            for region in app_config['regions']
-                        ],
-                        value='South East',  # Default selected region
-                    ),
-                    width=6
-                ),
-                dbc.Col(
-                    dcc.Dropdown(
-                        id='year-dropdown',
-                        options=[{"label": i, "value": i} for i in app_config['years']],
-                        value='2023',  # Default selected year
-                    ),
-                    width=6
-                ),                
-            ],
-            className="mb-4",
+               dbc.Row(
+    [
+        dbc.Col(
+            html.Div("Select region:", className="dropdown-label"),
+            width=1,
         ),
+        dbc.Col(
+            dcc.Dropdown(
+                id='region-dropdown',
+                options=[
+                    {'label': region, 'value': region}
+                    for region in app_config['regions']
+                ],
+                value='South East',  # Default selected region
+            ),
+            width=2
+        ),
+        dbc.Col(
+            html.Div("Select year:", className="dropdown-label"),
+            width=1,
+        ),
+        dbc.Col(
+            dcc.Dropdown(
+                id='year-dropdown',
+                options=[{"label": i, "value": i} for i in app_config['years']],
+                value='2023',  # Default selected year
+            ),
+            width=2,
+        ),
+    ],
+    className = "mb-4 dropdown-row"
+),
         dbc.Row(
             [
                 dbc.Col(
@@ -65,6 +73,7 @@ layout = dbc.Container(
 def update_price_change_box_callback(selected_year, selected_region):
     return update_price_change_boxplot(selected_year, selected_region)
 
+# Define callback to update the new plot based on selected year and region
 @callback(
     Output('price-change-map', 'figure'),
     [Input('year-dropdown', 'value'),

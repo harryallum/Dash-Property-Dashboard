@@ -39,7 +39,7 @@ def update_map(selected_year, selected_region):
     # Fetch the configuration for the selected region
     region_config = app_config['regions'][selected_region]
 
-    # Create choropleth map using Plotly Express
+    # Create choropleth map
     fig = px.choropleth_mapbox(
         data,
         geojson=geojson_data,
@@ -57,12 +57,13 @@ def update_map(selected_year, selected_region):
         hover_data={'volume': True},
     )
 
-    # Set the dark background color
+    # Update layout attributes
     fig.update_layout(
         mapbox=dict(style='carto-positron'),
         paper_bgcolor='#343a40',
         plot_bgcolor='#343a40',
-        font_color='white'
+        font_color='white',
+        legend=dict(title=dict(text='Legend Title'), orientation='h', x=1, y=1.02),
     )
 
     return fig
@@ -78,7 +79,7 @@ def update_bar_plot(selected_year,selected_region):
     # Aggregate volume by year
     aggregated_data = data.groupby('year')['volume'].sum().reset_index()
 
-    # Create stacked bar plot using Plotly Express
+    # Create stacked bar plot
     fig = px.bar(
         data,
         x='year',
@@ -88,19 +89,24 @@ def update_bar_plot(selected_year,selected_region):
         barmode='stack',  # Set the barmode to 'stack' for stacked bars
     )
 
-    # Add a line plot for the aggregated 'volume' over the top of the bar plot
+    # Add a line plot for the aggregated volume
     fig.add_trace(
         go.Scatter(x=aggregated_data['year'], y=aggregated_data['volume'], name='Volume', yaxis='y2', mode='lines+markers')
     )
 
+    # Update legend names
+    legend_names = {'D': 'Detached', 'S': 'Semi-Detached', 'T': 'Terraced', 'F': 'Flat'}
+    fig.for_each_trace(lambda t: t.update(name=legend_names.get(t.name, t.name)))
+
     # Update layout
     fig.update_layout(
         xaxis_title='Year',
-        yaxis_title='Average Price /£',
+        yaxis_title='Average Price £',
         yaxis2=dict(title='Volume',overlaying='y',showgrid=False, side='right'),
         plot_bgcolor='#343a40',
         paper_bgcolor='#343a40',
-        font_color='white'
+        font_color='white',
+        legend=dict(title=dict(text='Property Type'), orientation='h', yanchor="bottom", y=1.02,xanchor="right",x=1)
     )
 
     return fig
@@ -122,7 +128,7 @@ def update_price_change(selected_year, selected_region):
     key_min = np.percentile(data.delta, 5)
     key_max = np.percentile(data.delta, 98)
 
-    # Create choropleth map using Plotly Express
+    # Create choropleth map
     fig = px.choropleth_mapbox(
         data,
         geojson=geojson_data,
@@ -139,7 +145,7 @@ def update_price_change(selected_year, selected_region):
         range_color=(key_min,key_max),
     )
 
-    # Set the dark background color
+    # Update layout attributes
     fig.update_layout(
         mapbox=dict(style='carto-positron'),
         paper_bgcolor='#343a40',
@@ -164,7 +170,7 @@ def update_price_change_boxplot(selected_year,selected_region):
         # Append the DataFrame to the list
         all_data.append(year_data)
 
-    # Concatenate all DataFrames in the list
+    # Concatenate all dfs in the list
     data = pd.concat(all_data, ignore_index=True)
 
     # Filter the data to the selected region
@@ -173,7 +179,7 @@ def update_price_change_boxplot(selected_year,selected_region):
     y_min = np.percentile(data.delta, 1)
     y_max = np.percentile(data.delta, 99)
 
-    # Create box plot using Plotly Express
+    # Create box plot
     fig = px.box(
         data,
         x='year',
@@ -203,10 +209,10 @@ def update_fastest_growing_plot(selected_year, selected_region,slider_value):
     # Filter the data to the selected region
     data = data[data['region'] == selected_region]
 
-    # Sort the data by the 'delta' column in descending order
+    # Sort the data by the delta column in descending order
     data = data.sort_values('delta', ascending=False)
 
-    # Select the top 10 rows
+    # Select the top X rows as selected by slider
     top_10_data = data.head(slider_value)
 
     # Fetch the configuration for the selected region
@@ -215,7 +221,7 @@ def update_fastest_growing_plot(selected_year, selected_region,slider_value):
     # Check if geojson is loaded for the selected region, load if not
     read_geojson(selected_region)
 
-    # Create choropleth map using Plotly Express
+    # Create choropleth map
     fig = px.choropleth_mapbox(
         top_10_data,
         geojson=geojson_data,
@@ -231,7 +237,7 @@ def update_fastest_growing_plot(selected_year, selected_region,slider_value):
         title= f'Top {slider_value} fastest growing sectors in {selected_region} in {selected_year}'
     )
 
-    # Set the dark background color
+    # Update layout attributes
     fig.update_layout(
         mapbox=dict(style='carto-positron'),
         paper_bgcolor='#343a40',
@@ -261,7 +267,7 @@ def update_fastest_declining_plot(selected_year, selected_region, slider_value):
     # Check if geojson is loaded for the selected region, load if not
     read_geojson(selected_region)
 
-    # Create choropleth map using Plotly Express
+    # Create choropleth map
     fig = px.choropleth_mapbox(
         top_10_data,
         geojson=geojson_data,
@@ -277,7 +283,7 @@ def update_fastest_declining_plot(selected_year, selected_region, slider_value):
         title= f'Top {slider_value} fastest declining sectors in {selected_region} in {selected_year}'
     )
 
-    # Set the dark background color
+    # Update layout attributes
     fig.update_layout(
         mapbox=dict(style='carto-positron'),
         paper_bgcolor='#343a40',
@@ -327,7 +333,7 @@ def update_volume_map(selected_year, selected_region):
     key_min = np.percentile(data.volume, 1)
     key_max = np.percentile(data.volume, 99)
 
-    # Create choropleth map using Plotly Express
+    # Create choropleth map
     fig = px.choropleth_mapbox(
         data,
         geojson=geojson_data,
@@ -345,7 +351,7 @@ def update_volume_map(selected_year, selected_region):
         hover_data={'volume': True},
     )
 
-    # Set the dark background color
+    # Update layout attributes
     fig.update_layout(
         mapbox=dict(style='carto-positron'),
         paper_bgcolor='#343a40',

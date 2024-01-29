@@ -1,5 +1,5 @@
 import dash
-from dash import html, dcc, Input, Output, callback, State
+from dash import html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 from helpers import update_fastest_growing_plot, update_fastest_declining_plot
 from config import app_config
@@ -8,35 +8,43 @@ dash.register_page(__name__, path='/growth')
 
 layout = dbc.Container(
     [
-        dbc.Row(
-            [
-                dbc.Col(
-                    dcc.Dropdown(
-                        id='region-dropdown',
-                        options=[
-                            {'label': region, 'value': region}
-                            for region in app_config['regions']
-                        ],
-                        value='South East',  # Default selected region
-                    ),
-                    width=6
-                ),
-                dbc.Col(
-                    dcc.Dropdown(
-                        id='year-dropdown',
-                        options=[{"label": i, "value": i} for i in app_config['years']],
-                        value='2023',  # Default selected year
-                    ),
-                    width=6
-                ),
-            ],
-            className="mb-4",
+               dbc.Row(
+    [
+        dbc.Col(
+            html.Div("Select region:", className="dropdown-label"),
+            width=1,
         ),
+        dbc.Col(
+            dcc.Dropdown(
+                id='region-dropdown',
+                options=[
+                    {'label': region, 'value': region}
+                    for region in app_config['regions']
+                ],
+                value='South East',  # Default selected region
+            ),
+            width=2
+        ),
+        dbc.Col(
+            html.Div("Select year:", className="dropdown-label"),
+            width=1,
+        ),
+        dbc.Col(
+            dcc.Dropdown(
+                id='year-dropdown',
+                options=[{"label": i, "value": i} for i in app_config['years']],
+                value='2023',  # Default selected year
+            ),
+            width=2,
+        ),
+    ],
+    className = "dropdown-row"
+),
         dbc.Row(
             [
                 dbc.Col(
                     html.H5("Filter by top:", className="slider-h5"),
-                    width=2,
+                    width=1,
                     style={"display": "flex", "align-items": "center", "height": "50px"}
                 ),
                 dbc.Col(
@@ -48,12 +56,11 @@ layout = dbc.Container(
                         value=50,  # Default selected value
                         tooltip={"placement": "bottom", "always_visible": True},
                     ),
-                    width=10,
+                    width=4,
                     style={"height": "50px"}
                 ),
             ],
             className="mb-4 top-x-slider",
-            style={"margin": "0 0px"}  # Add margin to the row
         ),
         dbc.Row(
             [
@@ -76,12 +83,6 @@ layout = dbc.Container(
         ),
     ],
     fluid=True,
-)
-
-# Add a dcc.Store component to store the selected values
-layout.children.insert(
-    0,  # Insert the dcc.Store component at the beginning of the layout
-    dcc.Store(id='dropdown-store-growth', storage_type='memory', data={'region_value': 'South East', 'year_value': '2023', 'slider_value': 50})
 )
 
 # Callback for fastest growing map

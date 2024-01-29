@@ -10,9 +10,40 @@
 
 .top-x-slider {
     background-color: #343A40;
+    height: 70px;
+    align-items: center;
+    margin: 0 0px;
 }
 
 .slider-h5 {
+    font-family: "Open Sans", verdana, arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    font-weight: normal;
+}
+
+.mb-4 {
+    margin-top: 10px;
+    margin-bottom: 10px !important;
+}
+
+.dropdown-label {
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.dropdown-row {
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: center;
+    background-color: #343A40;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown-label {
     font-family: "Open Sans", verdana, arial, sans-serif;
     font-size: 16px;
     color: white;

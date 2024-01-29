@@ -1,0 +1,91 @@
+region,month,volume
+East England,1,869
+East England,2,855
+East England,3,1008
+East England,4,634
+East England,5,650
+East England,6,720
+East England,7,677
+East England,8,514
+East England,9,135
+East Midlands,1,4756
+East Midlands,2,4844
+East Midlands,3,5652
+East Midlands,4,3846
+East Midlands,5,3859
+East Midlands,6,4514
+East Midlands,7,4150
+East Midlands,8,2883
+East Midlands,9,545
+East of England,1,4437
+East of England,2,4161
+East of England,3,4691
+East of England,4,3383
+East of England,5,3352
+East of England,6,3923
+East of England,7,3780
+East of England,8,2705
+East of England,9,618
+Greater London,1,6883
+Greater London,2,6490
+Greater London,3,7456
+Greater London,4,5059
+Greater London,5,5086
+Greater London,6,6202
+Greater London,7,5951
+Greater London,8,4040
+Greater London,9,597
+North East,1,5005
+North East,2,4924
+North East,3,5688
+North East,4,4053
+North East,5,3966
+North East,6,5072
+North East,7,4484
+North East,8,3189
+North East,9,692
+North West,1,7868
+North West,2,7855
+North West,3,8879
+North West,4,6223
+North West,5,6189
+North West,6,7303
+North West,7,6845
+North West,8,4398
+North West,9,894
+South East,1,6951
+South East,2,6882
+South East,3,7702
+South East,4,5337
+South East,5,5348
+South East,6,6236
+South East,7,6108
+South East,8,4385
+South East,9,904
+South West,1,5386
+South West,2,5310
+South West,3,5977
+South West,4,4164
+South West,5,4154
+South West,6,5077
+South West,7,4935
+South West,8,3846
+South West,9,944
+Wales,1,2616
+Wales,2,2699
+Wales,3,3232
+Wales,4,2188
+Wales,5,2194
+Wales,6,2707
+Wales,7,2458
+Wales,8,1669
+Wales,9,399
+West Midlands,1,4876
+West Midlands,2,5003
+West Midlands,3,5796
+West Midlands,4,3947
+West Midlands,5,4044
+West Midlands,6,4673
+West Midlands,7,4212
+West Midlands,8,2940
+West Midlands,9,515
