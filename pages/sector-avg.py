@@ -5,7 +5,7 @@ import dash
 from helpers import update_price_change_boxplot, update_price_change
 from config import app_config
 
-dash.register_page(__name__, path='/sector-avg')
+dash.register_page(__name__, name="Price Change", path='/sector-avg')
 
 layout = dbc.Container(
     [

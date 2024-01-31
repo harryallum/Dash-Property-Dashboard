@@ -5,7 +5,7 @@ import dash
 from helpers import update_volume_plot, update_volume_map
 from config import app_config
 
-dash.register_page(__name__, path='/volume')
+dash.register_page(__name__,name="Volume", path='/volume')
 
 layout = dbc.Container(
     [
